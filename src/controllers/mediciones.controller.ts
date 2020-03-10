@@ -27,7 +27,7 @@ export class MedicionesController {
     public medicionesRepository : MedicionesRepository,
   ) {}
 
-  @post('/mediciones', {
+  @post('/api/mediciones', {
     responses: {
       '200': {
         description: 'Mediciones model instance',
@@ -51,7 +51,7 @@ export class MedicionesController {
     return this.medicionesRepository.create(mediciones);
   }
 
-  @get('/mediciones/count', {
+  @get('/api/mediciones/count', {
     responses: {
       '200': {
         description: 'Mediciones model count',
@@ -65,7 +65,7 @@ export class MedicionesController {
     return this.medicionesRepository.count(where);
   }
 
-  @get('/mediciones', {
+  @get('/api/mediciones', {
     responses: {
       '200': {
         description: 'Array of Mediciones model instances',
@@ -86,7 +86,7 @@ export class MedicionesController {
     return this.medicionesRepository.find(filter);
   }
 
-  @patch('/mediciones', {
+  @patch('/api/mediciones', {
     responses: {
       '200': {
         description: 'Mediciones PATCH success count',
@@ -108,7 +108,7 @@ export class MedicionesController {
     return this.medicionesRepository.updateAll(mediciones, where);
   }
 
-  @get('/mediciones/{id}', {
+  @get('/api/mediciones/{id}', {
     responses: {
       '200': {
         description: 'Mediciones model instance',
@@ -127,7 +127,7 @@ export class MedicionesController {
     return this.medicionesRepository.findById(id, filter);
   }
 
-  @patch('/mediciones/{id}', {
+  @patch('/api/mediciones/{id}', {
     responses: {
       '204': {
         description: 'Mediciones PATCH success',
@@ -148,7 +148,7 @@ export class MedicionesController {
     await this.medicionesRepository.updateById(id, mediciones);
   }
 
-  @put('/mediciones/{id}', {
+  @put('/api/mediciones/{id}', {
     responses: {
       '204': {
         description: 'Mediciones PUT success',
@@ -162,7 +162,7 @@ export class MedicionesController {
     await this.medicionesRepository.replaceById(id, mediciones);
   }
 
-  @del('/mediciones/{id}', {
+  @del('/api/mediciones/{id}', {
     responses: {
       '204': {
         description: 'Mediciones DELETE success',

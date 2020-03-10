@@ -27,7 +27,7 @@ export class AntirroboController {
     public antirroboRepository : AntirroboRepository,
   ) {}
 
-  @post('/antirrobos', {
+  @post('/api/antirrobos', {
     responses: {
       '200': {
         description: 'Antirrobo model instance',
@@ -51,7 +51,7 @@ export class AntirroboController {
     return this.antirroboRepository.create(antirrobo);
   }
 
-  @get('/antirrobos/count', {
+  @get('/api/antirrobos/count', {
     responses: {
       '200': {
         description: 'Antirrobo model count',
@@ -91,7 +91,7 @@ export class AntirroboController {
     return this.modo;
   }
 
-  @get('/antirrobos', {
+  @get('/api/antirrobos', {
     responses: {
       '200': {
         description: 'Array of Antirrobo model instances',
@@ -112,7 +112,7 @@ export class AntirroboController {
     return this.antirroboRepository.find(filter);
   }
 
-  @patch('/antirrobos', {
+  @patch('/api/antirrobos', {
     responses: {
       '200': {
         description: 'Antirrobo PATCH success count',
@@ -134,7 +134,7 @@ export class AntirroboController {
     return this.antirroboRepository.updateAll(antirrobo, where);
   }
 
-  @get('/antirrobos/{id}', {
+  @get('/api/antirrobos/{id}', {
     responses: {
       '200': {
         description: 'Antirrobo model instance',
@@ -153,7 +153,7 @@ export class AntirroboController {
     return this.antirroboRepository.findById(id, filter);
   }
 
-  @patch('/antirrobos/{id}', {
+  @patch('/api/antirrobos/{id}', {
     responses: {
       '204': {
         description: 'Antirrobo PATCH success',
@@ -174,7 +174,7 @@ export class AntirroboController {
     await this.antirroboRepository.updateById(id, antirrobo);
   }
 
-  @put('/antirrobos/{id}', {
+  @put('/api/antirrobos/{id}', {
     responses: {
       '204': {
         description: 'Antirrobo PUT success',
@@ -188,7 +188,7 @@ export class AntirroboController {
     await this.antirroboRepository.replaceById(id, antirrobo);
   }
 
-  @del('/antirrobos/{id}', {
+  @del('/api/antirrobos/{id}', {
     responses: {
       '204': {
         description: 'Antirrobo DELETE success',
