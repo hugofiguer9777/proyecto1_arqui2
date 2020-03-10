@@ -48,6 +48,7 @@ export class MedicionesController {
     })
     mediciones: Omit<Mediciones, 'id'>,
   ): Promise<Mediciones> {
+    mediciones.fecha_hora = new Date().toLocaleString();
     return this.medicionesRepository.create(mediciones);
   }
 
