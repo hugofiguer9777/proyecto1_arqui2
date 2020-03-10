@@ -65,6 +65,32 @@ export class AntirroboController {
     return this.antirroboRepository.count(where);
   }
 
+  public modo: Antirrobo;
+  @get('/api/antirrobos/last', {
+    responses: {
+      '200': {
+        description: 'Antirrobo model instance',
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Antirrobo, {includeRelations: true}),
+          },
+        },
+      },
+    },
+  })
+  async findLast(
+    @param.filter(Antirrobo) filter?: Filter<Antirrobo>,
+  ): Promise<Antirrobo> {
+    (await this.antirroboRepository.find(filter)).forEach ((value) => {
+      this.modo = value;
+    });
+
+    if(this.modo != null) {
+      delete this.modo.id;
+    }
+    return this.modo;
+  }
+
   @get('/antirrobos', {
     responses: {
       '200': {
