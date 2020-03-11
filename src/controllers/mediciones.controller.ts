@@ -48,7 +48,12 @@ export class MedicionesController {
     })
     mediciones: Omit<Mediciones, 'id'>,
   ): Promise<Mediciones> {
-    mediciones.fecha_hora = new Date().toLocaleString();
+    if(mediciones.fecha_hora == "" || mediciones.fecha_hora == null){
+      let dateValue = new Date();
+      console.log(dateValue.getTimezoneOffset());
+      mediciones.fecha_hora = new Date(dateValue.getTime() - ((1 * 60 * 60 * 1000) * 6)).toLocaleString();
+      let fecha = new Date();
+    }
     return this.medicionesRepository.create(mediciones);
   }
 
