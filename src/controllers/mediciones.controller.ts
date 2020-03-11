@@ -50,9 +50,9 @@ export class MedicionesController {
   ): Promise<Mediciones> {
     if(mediciones.fecha_hora == "" || mediciones.fecha_hora == null){
       let dateValue = new Date();
-      console.log(dateValue.getTimezoneOffset());
-      mediciones.fecha_hora = new Date(dateValue.getTime() - ((1 * 60 * 60 * 1000) * 6)).toLocaleString();
-      let fecha = new Date();
+      if(dateValue.getTimezoneOffset() == 0){
+        mediciones.fecha_hora = new Date(dateValue.getTime() - ((1 * 60 * 60 * 1000) * 6)).toLocaleString();
+      }
     }
     return this.medicionesRepository.create(mediciones);
   }
